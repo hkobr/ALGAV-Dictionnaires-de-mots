@@ -35,15 +35,16 @@ public class Utils {
 		ArrayList<String> liste = new ArrayList<>();
 		if (dir.isDirectory()) {
 			File[] tabFiles = dir.listFiles();
-			for (File tmp : tabFiles) {
-				if (tmp.isFile()) {
-					try {
-						liste.addAll(readFile(tmp));
-					} catch (IOException e) {
-						e.printStackTrace();
+			if (tabFiles != null)
+				for (File tmp : tabFiles) {
+					if (tmp.isFile()) {
+						try {
+							liste.addAll(readFile(tmp));
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
 				}
-			}
 		}
 
 		return liste;
